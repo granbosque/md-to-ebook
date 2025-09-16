@@ -19,8 +19,8 @@
         
         /* Tipografía base */
         --body-font-family: 'Garamond', 'Noto Serif', serif; /* Familia. Opciones: 'Noto Serif', 'Noto Sans', Garamond, Georgia, serif, sans-serif */
-        --body-font-size: 12pt; /* Tamaño base. Opciones: 11pt, 12pt, 13pt */
-        --body-line-height: 1.15; /* Altura de línea. Opciones: 1–1.6 */
+        --body-font-size: 10.5pt; /* Tamaño base. Opciones: 11pt, 12pt, 13pt */
+        --body-line-height: 1; /* Altura de línea. Opciones: 1–1.6 */
 
         /* Control de composición */
         --paragraph-orphans: 2; /* Mín. líneas al final */
@@ -95,11 +95,12 @@ h1 { string-set: book-h1 content(text); }
         margin-right: 32mm;
         @top-left {
             content: counter(page);
-            font-size: 10pt;
+            font-size: 8pt;
         }
         @top-right {
-            content: string(book-author); /* puedes usar book-title, book-author o book-h1, que sería el nombre del capítulo actual */
-            font-size: 10pt;
+            content: string(book-title); /* puedes usar book-title, book-author o book-h1, que sería el nombre del capítulo actual */
+            font-size: 8pt;
+            font-variant: small-caps;
         }
     }
     @page content-pages:right {
@@ -107,11 +108,12 @@ h1 { string-set: book-h1 content(text); }
         margin-right: 14mm;
         @top-right {
             content: counter(page);
-            font-size: 10pt;
+            font-size: 8pt;
         }
         @top-left {
-            content: string(book-title);
-            font-size: 10pt;
+            content: string(book-author);
+            font-size: 8pt;
+            font-variant: small-caps;
         }
     }
 
@@ -188,6 +190,10 @@ h1 { string-set: book-h1 content(text); }
         justify-content: space-between;
         text-align: center;
     }
+    header:has(.metadata>p) .title {
+        margin-top: 3em;
+    }
+    
     header:not(:has(.metadata>p)) {
         page: content-pages;
         text-align: var(--h1-text-align);
@@ -213,7 +219,7 @@ h1 { string-set: book-h1 content(text); }
         width: 60%;
         margin-left: auto;
         margin-right: auto;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
         text-align: var(--metadata-text-align);
     }
 
