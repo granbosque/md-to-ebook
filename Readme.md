@@ -50,6 +50,11 @@ Los tres asteriscos que hay encima de este párrafo indican una separación de s
 ```
 
 
+Hay multitud de editores para todos los sistemas operativos. Más abajo incluyo enlaces para algunos, pero puedes también echar un vistazo y experimentar aquí:
+
+[https://markdownlivepreview.com/](https://markdownlivepreview.com/)
+
+
 ## ¿Por qué usar markdown?
 
 Resumen: permite tener el texto limpio con el formato mínimo y que no dependa de la visualización o aspecto. Generalmente para relatos, novelas u obras de ficción se necesita un formato realmente mínimo: indicar los títulos y secciones, cursiva y poco más. Raramente se usará negrita, subrayado, colores... En cualquier caso markdown nos permite separar el contenido de la presentación. 
