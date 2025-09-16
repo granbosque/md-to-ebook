@@ -183,6 +183,8 @@ Para crear el epub, solamente arrastra tu archivo **mi_libro.md** sobre **build_
 
 Este script usa pandoc para la conversión y usa el archivo de imagen que indicaste en los metadatos para incrustar la portada, y genera la tabla de contenidos a partir de los títulos (por eso es tan importante tener la estructura correcta).
 
+> El comando que usa es `pandoc input_file -c epub.css -o output_file`. Para epub podemos usar la conversión estándar de pandoc y no hay que personalizar nada más (aparte del css).
+
 Para generar este epub se usa la hoja de estilos **epub.css** que tiene el formato que yo suelo usar. Si dominas css, la podrás personalizar fácilmente, pero generalmente no es necesario. En los archivos epub, menos es más, cada lector ya aplica su fuente, márgenes, interlineado, formato para títulos, etc y es mejor no forzarlo en el estilo. Esta plantilla solamente añade sangría de primera línea (excepto en el primer párrafo que va sin sangría) y algunos detalles más.
 
 Si quieres hacer cosas más elaboradas como letras capitulares, imágenes... es cuestión de modificar el css.
@@ -190,7 +192,27 @@ Si quieres hacer cosas más elaboradas como letras capitulares, imágenes... es 
 
 ## PDF
 
-He hablado antes de pdf para visualizar y para imprimir, y es que hay diferencias sustanciales. He incluido dos utilidades para generar ambos formatos. En esta guía se incluyen dos plantillas.
+Para crear los pdf seguimos un proceso similar pero con un paso más.
+
+Tenemos dos plantillas, pdf normal y pdf imprimible. Solamente tendrás que arrastrar tu archivo **mi_libro.md** sobre **build_pdf.bat** o sobre **build_print_pdf.bat**.
+
+Eso te creará un archivi **HTML**, que se puede abrir con Chrome o Edge. Desde ahí puedes darle a Imprimir y como el navegador te permite, en lugar de sacarlo por impresora, guardarlo como PDF, eso es lo que haremos.
+
+IMPORTANTE: En las opciones de impresión, seleccionar:
+
+- Destino: Guardar como pdf (NO seleccionar Microsoft print to PDF)
+- Márgenes: Predeterminado (NO seleccionar otra opción porque añade márgenes adicionales)
+- Desactivar encabezados y pies de página (los que añade Chrome)
+
+Guardar el archivo, y listo.
+
+
+![Muestra de cómo convertir html a pdf](img/chrome.png)
+
+
+> NOTA: Si te interesan las tripas de esto, el script usa pandoc para convertir markdown a html. En principio se podría convertir directamente a pdf sin pasar por chrome, pero todas las soluciones que he probado tienen algún problema (o la separación silábica, o los saltos de página, o no son gratis) 
+
+He dicho que podemos crear dos versiones del pdf: para visualizar y para imprimir, y es que hay diferencias sustanciales. He incluido dos utilidades para generar ambos formatos. En esta guía se incluyen dos plantillas:
 
 ### A) PDF digital
 
@@ -217,23 +239,10 @@ En cambio, si lo que pretendemos es imprimirlo, la maquetación se complica bast
 
 ![](img/print_pdf.png "En esta imagen se resaltan estos detalles")
 
-Todo esto es personalizable editando los archivos css.
 
 Esa es otra ventaja del markdown, que tú tienes tu documento preparado con todo, y puedes generar formatos diferentes sin necesitar varias versiones de tu libro.
+Todo esto es personalizable editando los archivos css.
 
-El proceso es igual para ambos casos, solamente tendrás que arrastrar tu archivo **mi_libro.md** sobre **build_pdf.bat** o sobre **build_print_pdf.bat**.
-
-Convierte el HTML a PDF con Chrome o Edge.
-
-Aunque al abrir el HTML quizá no veas las páginas separadas ni los números de página, al imprimir se aplicarán los estilos específicos para impresión (paginación, folios, etc.). Si se trata de un PDF imprimible, puede que veas páginas en blanco intencionadas para recto/verso.
-
-IMPORTANTE: En las opciones de impresión, seleccionar:
-
-- Destino: Guardar como pdf (NO seleccionar Microsoft print to PDF)
-- Márgenes: Predeterminado (NO seleccionar otra opción porque añade márgenes adicionales)
-- Desactivar encabezados y pies de página (los que añade Chrome)
-
-Guardar el archivo, y listo.
 
 Nota: En principio se podría automatizar esto y generar el pdf sin tener que abrir manualmente Google Chrome en modo headless, pero hay un error (error de Chrome, conocido y que no sé si se arreglará) por el que la separación silábica no funciona en ese modo headless (automatizado).
 
