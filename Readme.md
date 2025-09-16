@@ -13,7 +13,7 @@ Este repositorio contiene una serie de scripts y utilidades para convertir un ar
 
 Estas utilidades muestran el proceso que yo sigo para maquetar libros en diferentes formatos a partir de un único archivo de texto.
 
-Partimos de que el documento original esté en formato Markdown. Si no conoces markdown, puedes empezar por esta guía básica: [Guía de Markdown de GitHub (español)](https://docs.github.com/es/get-started/writing-on-github/getting-started-with-writing-and-formatting-syntax)
+Partimos de que el documento original esté en formato Markdown. Si no conoces markdown, puedes empezar por esta guía básica: [Guía de Markdown en programminghistorian.org](https://programminghistorian.org/es/lecciones/introduccion-a-markdown)
 
 ## ¿Qué es Markdown?
 
